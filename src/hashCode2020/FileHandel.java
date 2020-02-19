@@ -3,6 +3,7 @@ package hashCode2020;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 public class FileHandel<line> {
 
@@ -82,6 +83,45 @@ public class FileHandel<line> {
         }
         String paragraph=sb.toString();
         return paragraph;
+    }
+
+
+    /*PASS READ_REMAINING TXT FILE AS String array. */
+    public static void readRemainingAsArray(String path) {
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(path))) {
+            // read line by line
+            String line;
+            line = br.readLine();
+            while ((line = br.readLine()) != null) {
+                sb.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            System.err.format("IOException: %s%n", e);
+        }
+        String paragraph=sb.toString();
+
+        int length, count, size;
+        length = paragraph.length();
+        size = length / 2;
+        double intarray[] = new double[size];
+        String strarray[] = new String[size];
+        strarray = paragraph.split(" ");
+
+        for (count = 0; count < intarray.length ; count++) {
+            try {
+                intarray[count] = Double.parseDouble((strarray[count]));
+            }catch(Exception e){
+            }
+        }
+        int j=0;
+        int[] intArry= new int[size];
+        for (double s : intarray) {
+            intArry[j++]=(int)s;
+        }
+        for(int xx:intArry)
+            System.out.println(xx);
+
     }
 
 

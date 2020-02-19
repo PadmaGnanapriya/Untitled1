@@ -22,9 +22,11 @@ public class Main {
         System.out.println(dataOfFile);
 
         /*WRITE ON THE TXT FILE.*/
-        String data0 = "ENTRE YOUR STRING TO WRITE ON FILE";
+        String data0 = "ENTRE YOUR STRING TO WRITE ON FILE"; // Asign your arrayOutput as string
         String data1 = "ENTRE YOUR STRING TO WRITE ON FILE ALSO"; // Asign your arrayOutput as string
-        FileHandel.writeUsingOutputStream(data0+" "+data1,"H:\\A_Padma_Codes\\Code_Java\\untitled1\\src\\hashCode2020\\HashCode.txt");
+        FileHandel.writeUsingOutputStream(data0 + " " + data1, "H:\\A_Padma_Codes\\Code_Java\\untitled1\\src\\hashCode2020\\HashCode.txt");
 
+        /*PRINT ENTIRE TXT FILE AS String. */
+        FileHandel.readRemainingAsArray("src/hashCode2020/Sample");
     }
 }
