@@ -34,10 +34,6 @@ public class Main {
         for(int value:ar)
             System.out.print(value+" ");
 
-        /*PRINT ENTIRE TXT FILE AS String. */
-        //FileHandel.readRemainingAsArray("src/hashCode2020/Sample");
-
-
 
     }
 }

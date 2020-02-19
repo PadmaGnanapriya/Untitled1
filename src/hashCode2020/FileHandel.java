@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class FileHandel<line> {
 
-
     /* NEW TXT WRITING METHOD*/
     public static void writeUsingOutputStream(String data,String path) {
         OutputStream os = null;
@@ -103,48 +102,4 @@ public class FileHandel<line> {
             intArry[i++] = scanner.nextInt();
         return intArry;
     }
-
-
-    /*PASS READ_REMAINING TXT FILE AS String array. */
-    public static void readRemainingAsArray(String path) {
-        StringBuilder sb = new StringBuilder();
-        try (BufferedReader br = Files.newBufferedReader(Paths.get(path))) {
-            // read line by line
-            String line;
-            line = br.readLine();
-            while ((line = br.readLine()) != null) {
-                sb.append(line).append("\n");
-            }
-        } catch (IOException e) {
-            System.err.format("IOException: %s%n", e);
-        }
-        String paragraph=sb.toString();
-
-        int length, count, size;
-        length = paragraph.length();
-        size = length / 2;
-        double intarray[] = new double[size];
-        String strarray[] = new String[size];
-        strarray = paragraph.split("\\b");
-
-        for (count = 0; count < intarray.length ; count++) {
-            try {
-                intarray[count] = Double.parseDouble((strarray[count]));
-            }catch(Exception e){
-            }
-        }
-        int j=0;
-        int[] intArry= new int[size];
-        for (double s : intarray) {
-            if(s!=0)
-            intArry[j++]=(int)s;
-        }
-        for(int xx:intArry)
-            System.out.println(xx);
-    }
-
-
-
-
-
 }
