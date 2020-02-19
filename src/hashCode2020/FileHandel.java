@@ -3,7 +3,7 @@ package hashCode2020;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class FileHandel<line> {
 
@@ -85,6 +85,25 @@ public class FileHandel<line> {
         return paragraph;
     }
 
+    /*Read a File into an int array */
+    public static int[] readIntoArray(String path) throws IOException {
+        File file = new File(path);
+        Scanner scann=new Scanner(file);
+        Scanner scanner = new Scanner(file);
+        scanner.nextLine(); //To skip first line
+        scann.nextLine(); //To skip first line
+        int count=0;
+        while (scann.hasNextInt()){
+            count++;
+            scann.nextInt();
+        }
+        int[] intArry = new int[count];//***Make limits here
+        int i = 0;
+        while (scanner.hasNext())
+            intArry[i++] = scanner.nextInt();
+        return intArry;
+    }
+
 
     /*PASS READ_REMAINING TXT FILE AS String array. */
     public static void readRemainingAsArray(String path) {
@@ -106,7 +125,7 @@ public class FileHandel<line> {
         size = length / 2;
         double intarray[] = new double[size];
         String strarray[] = new String[size];
-        strarray = paragraph.split(" ");
+        strarray = paragraph.split("\\b");
 
         for (count = 0; count < intarray.length ; count++) {
             try {
@@ -117,12 +136,13 @@ public class FileHandel<line> {
         int j=0;
         int[] intArry= new int[size];
         for (double s : intarray) {
+            if(s!=0)
             intArry[j++]=(int)s;
         }
         for(int xx:intArry)
             System.out.println(xx);
-
     }
+
 
 
 
