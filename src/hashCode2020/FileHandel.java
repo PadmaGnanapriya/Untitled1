@@ -1,11 +1,8 @@
-package Lab_01;
+package hashCode2020;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class FileHandel<line> {
 
@@ -54,6 +51,23 @@ public class FileHandel<line> {
             return null;
         }
 
+    /*PASS READ_REMAINING TXT FILE AS String. */
+    public static String readRemaining(String path) {
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(path))) {
+            // read line by line
+            String line;
+            line = br.readLine();
+            while ((line = br.readLine()) != null) {
+                sb.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            System.err.format("IOException: %s%n", e);
+        }
+        String paragraph=sb.toString();
+        return paragraph;
+    }
+
     /*PASS ENTIRE TXT FILE AS String. */
     public static String readRead(String path) {
         StringBuilder sb = new StringBuilder();
@@ -69,6 +83,7 @@ public class FileHandel<line> {
         String paragraph=sb.toString();
         return paragraph;
     }
+
 
 
 
